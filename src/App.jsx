@@ -7,15 +7,42 @@ import { AuthContext } from './context/AuthProvider'
 
 const App = () => {
   const [user, setUser] = useState(null)
+  const [loggedInUserData, setLoggedInUserData] = useState(null)
 
   const Authdata = useContext(AuthContext)
-  console.log(Authdata)
 
+  // useEffect(() => {
+  //   if (Authdata) {
+  //     const loggedInUser = localStorage.getItem('loggedInUser')
+  //     if (loggedInUser) {
+  //       setUser(loggedInUser.role)        
+  //     }
+      
+  //   }
+  
+    
+  // }, [Authdata])
+  
+
+  setLocalStorage()
   const handleLogin = (email, password) => {
+
     if (Authdata.admin.find((e) => e.email === email && e.password === password)) {
+
+
       setUser("admin");
-    } else if (Authdata.employees.find((e) => e.email === email && e.password === password)) {
-      setUser("employee");
+      localStorage.setItem('loggedInUser' , JSON.stringify({role:'admin'}))
+
+
+    } else if (Authdata) {
+     const employee= Authdata.employees.find((e) => e.email === email && e.password === password)
+     if (employee) {
+     setUser("employees");
+     setLoggedInUserData(employee)
+     localStorage.setItem('loggedInUser' , JSON.stringify({role:'employee'}))
+      
+     }
+
     } else {
       alert("Invalid email or password");
     }
@@ -27,7 +54,8 @@ const App = () => {
   // handleLogin()
   return (
     <>
-    {user=="admin" ? <AdminDashboard/>: <EmployDashboard/>}
+
+    {user == 'admin' ? <AdminDashboard/> : (user == 'employees' ? <EmployDashboard data={loggedInUserData} /> : null)}
    
     
     </>

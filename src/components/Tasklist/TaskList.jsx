@@ -1,9 +1,16 @@
 import React from 'react'
+import AcceptTask from './AcceptTask'
+import NewTask from './NewTask'
 
-const TaskList = () => {
+const TaskList = ({data}) => {
     return (
         <div className='container max-w-7xl mx-auto h-screen '>
             <div id='tasklist' className='w-full   mt-6 h-[50%] flex items-center flex-nowrap gap-5 py-5 overflow-x-auto '>
+            <AcceptTask/>
+            <NewTask/>
+            
+
+               
                 <div className="h-full bg-red-400 w-[300px] rounded-xl flex-shrink-0 p-5 text-white ">
                     <div className="flex items-center justify-between ">
                         <h3 className='bg-red-500 px-3 py-1 rounded text-sm '>High</h3>
