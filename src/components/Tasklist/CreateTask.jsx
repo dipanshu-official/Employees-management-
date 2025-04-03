@@ -29,7 +29,7 @@ const CreateTask = () => {
                             <h3 className='text-lg font-semibold text-gray-700'>Assign to</h3>
                             <input
                                 type='text'
-                                placeholder='Employee name'
+                                placeholder='employees name'
                                 className='w-full mt-1 p-2 border rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none'
                             />
                         </div>

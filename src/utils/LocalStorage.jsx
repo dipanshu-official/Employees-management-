@@ -1,9 +1,15 @@
 const employees = [
     {
         "id": 1,
-        "name": "John Doe",
-        "email": "johndoe@example.com",
+        "name": "Dipanshu Kumar",
+        "email": "dipanshu@me.com",
         "password": "123",
+        "task_show": {
+            "active": 3,
+            "completed": 0,
+            "new_task": 2,
+            "failed": 0
+        },
         "tasks": [
             {
                 "task_title": "Project Kickoff Meeting",
@@ -13,7 +19,8 @@ const employees = [
                 "active": true,
                 "new_task": false,
                 "completed": false,
-                "failed": false
+                "failed": false,
+                "priority": "High"
             },
             {
                 "task_title": "Client Feedback Review",
@@ -23,7 +30,19 @@ const employees = [
                 "active": true,
                 "new_task": true,
                 "completed": false,
-                "failed": false
+                "failed": false,
+                "priority": "Medium"
+            },
+            {
+                "task_title": "Team Standup",
+                "task_description": "Daily team progress meeting.",
+                "task_date": "2025-04-05",
+                "category": "Meeting",
+                "active": true,
+                "new_task": true,
+                "completed": false,
+                "failed": false,
+                "priority": "Low"
             }
         ]
     },
@@ -32,6 +51,12 @@ const employees = [
         "name": "Jane Smith",
         "email": "janesmith@example.com",
         "password": "123",
+        "task_show": [
+            { "active": 3 },
+            { "completed": 0 },
+            { "new_task": 2 },
+            { "failed": 0 }
+        ],
         "tasks": [
             {
                 "task_title": "Code Refactoring",
@@ -41,7 +66,8 @@ const employees = [
                 "active": true,
                 "new_task": false,
                 "completed": false,
-                "failed": false
+                "failed": false,
+                "priority": "High"
             },
             {
                 "task_title": "Bug Fixing Sprint",
@@ -51,7 +77,19 @@ const employees = [
                 "active": true,
                 "new_task": true,
                 "completed": false,
-                "failed": false
+                "failed": false,
+                "priority": "Critical"
+            },
+            {
+                "task_title": "Code Review",
+                "task_description": "Review pull requests for quality assurance.",
+                "task_date": "2025-04-07",
+                "category": "Development",
+                "active": true,
+                "new_task": true,
+                "completed": false,
+                "failed": false,
+                "priority": "Medium"
             }
         ]
     },
@@ -60,6 +98,12 @@ const employees = [
         "name": "Mike Johnson",
         "email": "mikejohnson@example.com",
         "password": "123",
+        "task_show": [
+            { "active": 2 },
+            { "completed": 1 },
+            { "new_task": 1 },
+            { "failed": 0 }
+        ],
         "tasks": [
             {
                 "task_title": "Database Migration",
@@ -69,7 +113,8 @@ const employees = [
                 "active": false,
                 "new_task": false,
                 "completed": true,
-                "failed": false
+                "failed": false,
+                "priority": "High"
             },
             {
                 "task_title": "Server Maintenance",
@@ -79,7 +124,19 @@ const employees = [
                 "active": true,
                 "new_task": false,
                 "completed": false,
-                "failed": false
+                "failed": false,
+                "priority": "Medium"
+            },
+            {
+                "task_title": "Security Audit",
+                "task_description": "Perform security assessment on infrastructure.",
+                "task_date": "2025-04-09",
+                "category": "Security",
+                "active": true,
+                "new_task": true,
+                "completed": false,
+                "failed": false,
+                "priority": "High"
             }
         ]
     },
@@ -88,6 +145,12 @@ const employees = [
         "name": "Emily Davis",
         "email": "emilydavis@example.com",
         "password": "123",
+        "task_show": [
+            { "active": 3 },
+            { "completed": 0 },
+            { "new_task": 2 },
+            { "failed": 0 }
+        ],
         "tasks": [
             {
                 "task_title": "UI/UX Review",
@@ -97,7 +160,8 @@ const employees = [
                 "active": true,
                 "new_task": false,
                 "completed": false,
-                "failed": false
+                "failed": false,
+                "priority": "Medium"
             },
             {
                 "task_title": "Prototype Testing",
@@ -107,7 +171,19 @@ const employees = [
                 "active": true,
                 "new_task": true,
                 "completed": false,
-                "failed": false
+                "failed": false,
+                "priority": "High"
+            },
+            {
+                "task_title": "User Interviews",
+                "task_description": "Conduct interviews to understand user needs.",
+                "task_date": "2025-04-11",
+                "category": "Research",
+                "active": true,
+                "new_task": true,
+                "completed": false,
+                "failed": false,
+                "priority": "High"
             }
         ]
     },
@@ -116,6 +192,12 @@ const employees = [
         "name": "Robert Wilson",
         "email": "robertwilson@example.com",
         "password": "123",
+        "task_show": [
+            { "active": 2 },
+            { "completed": 1 },
+            { "new_task": 2 },
+            { "failed": 0 }
+        ],
         "tasks": [
             {
                 "task_title": "Market Analysis",
@@ -125,7 +207,8 @@ const employees = [
                 "active": true,
                 "new_task": true,
                 "completed": false,
-                "failed": false
+                "failed": false,
+                "priority": "High"
             },
             {
                 "task_title": "Report Submission",
@@ -135,27 +218,48 @@ const employees = [
                 "active": false,
                 "new_task": false,
                 "completed": true,
-                "failed": false
+                "failed": false,
+                "priority": "Low"
+            },
+            {
+                "task_title": "Marketing Strategy",
+                "task_description": "Develop new marketing campaign strategy.",
+                "task_date": "2025-04-13",
+                "category": "Marketing",
+                "active": true,
+                "new_task": true,
+                "completed": false,
+                "failed": false,
+                "priority": "Medium"
             }
         ]
     }
+];
+
+
+
+const admin = [
+    {
+        "id": 0,
+        "email": "admin@example.com",
+        "password": "123"
+    },
+    {
+        "id": 0,
+        "email": "dipanshu@admin.com",
+        "password": "123"
+    },
 ]
 
-const admin = [{
-    "id": 0,
-    "email": "admin@example.com",
-    "password": "123"
-}]
-
 export const setLocalStorage = () => {
-    localStorage.setItem('employees',JSON.stringify(employees))
-    localStorage.setItem('admin',JSON.stringify(admin))
+    localStorage.setItem('employees', JSON.stringify(employees))
+    localStorage.setItem('admin', JSON.stringify(admin))
 }
 
 export const getLocalStorage = () => {
     const employees = JSON.parse(localStorage.getItem('employees'))
     const admin = JSON.parse(localStorage.getItem('admin'))
-    return{
+    return {
         employees,
         admin
     }
