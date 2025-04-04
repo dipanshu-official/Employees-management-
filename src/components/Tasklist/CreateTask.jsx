@@ -2,7 +2,11 @@ import React from 'react'
 import Header from '../other/Header'
 
 const CreateTask = () => {
+    const submitHandler =() => {
+      
+    }
     return (
+
         <div className=''>
             <Header />
             <div className='container max-w-7xl mx-auto p-6 pt-0 bg-white shadow-lg rounded-2xl'>
