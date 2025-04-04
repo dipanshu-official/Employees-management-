@@ -51,12 +51,12 @@ const employees = [
         "name": "Jane Smith",
         "email": "janesmith@example.com",
         "password": "123",
-        "task_show": [
-            { "active": 3 },
-            { "completed": 0 },
-            { "new_task": 2 },
-            { "failed": 0 }
-        ],
+        "task_show": {
+            "active": 3,
+            "completed": 0,
+            "new_task": 2,
+            "failed": 0
+        },
         "tasks": [
             {
                 "task_title": "Code Refactoring",
@@ -98,12 +98,12 @@ const employees = [
         "name": "Mike Johnson",
         "email": "mikejohnson@example.com",
         "password": "123",
-        "task_show": [
-            { "active": 2 },
-            { "completed": 1 },
-            { "new_task": 1 },
-            { "failed": 0 }
-        ],
+        "task_show": {
+            "active": 2,
+            "completed": 1,
+            "new_task": 1,
+            "failed": 0
+        },
         "tasks": [
             {
                 "task_title": "Database Migration",
@@ -145,12 +145,12 @@ const employees = [
         "name": "Emily Davis",
         "email": "emilydavis@example.com",
         "password": "123",
-        "task_show": [
-            { "active": 3 },
-            { "completed": 0 },
-            { "new_task": 2 },
-            { "failed": 0 }
-        ],
+        "task_show": {
+            "active": 3,
+            "completed": 0,
+            "new_task": 2,
+            "failed": 0
+        },
         "tasks": [
             {
                 "task_title": "UI/UX Review",
@@ -192,12 +192,12 @@ const employees = [
         "name": "Robert Wilson",
         "email": "robertwilson@example.com",
         "password": "123",
-        "task_show": [
-            { "active": 2 },
-            { "completed": 1 },
-            { "new_task": 2 },
-            { "failed": 0 }
-        ],
+        "task_show": {
+            "active": 2,
+            "completed": 1,
+            "new_task": 2,
+            "failed": 0
+        },
         "tasks": [
             {
                 "task_title": "Market Analysis",
@@ -241,11 +241,13 @@ const employees = [
 const admin = [
     {
         "id": 0,
+        "name":"admin",
         "email": "admin@example.com",
         "password": "123"
     },
     {
         "id": 0,
+        "name":"dipanshu",
         "email": "dipanshu@admin.com",
         "password": "123"
     },

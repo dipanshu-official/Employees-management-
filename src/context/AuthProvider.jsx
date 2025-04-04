@@ -12,8 +12,7 @@ const AuthProvider = ({ children }) => {
     const localData = getLocalStorage();  // Assuming getLocalStorage returns an object
     if (localData) {
       const { employees, admin } = localData;  // Ensure these keys exist
-      ('employees',employees)
-      setUserdata({ employees, admin });
+      setUserdata({ employees ,admin});
 
     }
   }, []);
@@ -22,7 +21,7 @@ const AuthProvider = ({ children }) => {
 
 
   return (
-    <AuthContext value={userdata}>
+    <AuthContext value={[userdata , setUserdata]}>
       {children}
     </AuthContext>
   )

@@ -9,7 +9,8 @@ const App = () => {
   const [user, setUser] = useState(null);
   const [loggedInUserData, setLoggedInUserData] = useState(null);
 
-  const Authdata = useContext(AuthContext);
+  const [userdata, setUserdata] = useContext(AuthContext)
+
 
   useEffect(() => {
     // Ensure localStorage is set only once
@@ -30,18 +31,20 @@ const App = () => {
   }, []);
 
   const handleLogin = (email, password) => {
-    ('Attempting login with:', email, password);
 
-    if (!Authdata || typeof Authdata !== 'object') {
-      alert('Authdata is missing or incorrect');
+    if (!userdata || typeof userdata !== 'object') {
+      alert('userdata is missing or incorrect');
       return;
     }
+  
 
-    if (Authdata.admin.find((e) => e.email === email && e.password === password)) {
+    if (userdata.admin.find((e) => e.email === email && e.password === password)) {
+      const userInfo =userdata.admin.find((e) => e.email === email)
+      console.log("userInfo =>", userInfo)
       setUser('admin');
       localStorage.setItem('loggedInUser', JSON.stringify({ role: 'admin' }));
     } else {
-      const employee = Authdata.employees.find((e) => e.email === email && e.password === password);
+      const employee = userdata.employees.find((e) => e.email === email && e.password === password);
 
       if (employee) {
         setUser('employees');
@@ -60,7 +63,7 @@ const App = () => {
 
   return (
     <>
-      {user === 'admin' ? <AdminDashboard /> : user === 'employees' ? <EmployDashboard data={loggedInUserData} /> : null}
+      {user === 'admin' ? <AdminDashboard newUserData={setUser} /> : user === 'employees' ? <EmployDashboard data={loggedInUserData} newUserData={setUser} /> : null}
     </>
   );
 };

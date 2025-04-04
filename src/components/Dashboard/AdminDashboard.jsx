@@ -3,13 +3,13 @@ import Header from '../other/Header'
 import CreateTask from '../Tasklist/CreateTask'
 import AllTask from '../Tasklist/AllTask'
 
-const AdminDashboard = () => {
+const AdminDashboard = (props) => {
     return (
         <>
 
 
-            <CreateTask />
-            <AllTask />
+            <CreateTask newUserData={props.newUserData}/>
+            <AllTask newUserData={props.newUserData}/>
         </>
     )
 }
