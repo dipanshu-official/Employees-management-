@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react'
 import Header from '../other/Header'
-import { AuthContext } from '../../context/AuthProvider'
+import { useDispatch, useSelector } from 'react-redux'
+import { setAuthData } from '../../features/authSlice'
 
 const CreateTask = (props) => {
     const [taskTitle, setTaskTitle] = useState('')
@@ -9,7 +10,8 @@ const CreateTask = (props) => {
     const [asignTo, setAsignTo] = useState('')
     const [Category, setCategory] = useState('')
     const [newTask, setNewTask] = useState({})
-    const [userdata, setUserdata] = useContext(AuthContext)
+    const userdata = useSelector((state => state.auth))
+    const dispatch = useDispatch()
 
 
     const submitHandler = (e) => {
@@ -37,7 +39,7 @@ const CreateTask = (props) => {
             return emp
         })
 
-        setUserdata(updatedData)
+        dispatch(setAuthData(updatedData))
         localStorage.setItem("userData", JSON.stringify(updatedData)) // only if you’re using localStorage
 
         // Clear form fields

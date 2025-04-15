@@ -1,8 +1,8 @@
 import React, { useContext } from 'react'
-import { AuthContext } from '../../context/AuthProvider'
+import { useSelector } from 'react-redux'
 
 const AllTask = () => {
-    const [userdata, setUserdata] = useContext(AuthContext)
+    const userdata = useSelector((state => state.auth))
 
 
     return (
