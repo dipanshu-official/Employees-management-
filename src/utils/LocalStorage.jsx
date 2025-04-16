@@ -4,6 +4,7 @@ const employees = [
         "name": "Dipanshu employee",
         "email": "dipanshu@me.com",
         "password": "123",
+        "age": 28,
         "task_show": {
             "active": 3,
             "completed": 0,
@@ -51,6 +52,7 @@ const employees = [
         "name": "Jane Smith",
         "email": "janesmith@example.com",
         "password": "123",
+        "age": 32,
         "task_show": {
             "active": 3,
             "completed": 0,
@@ -98,6 +100,7 @@ const employees = [
         "name": "Mike Johnson",
         "email": "mikejohnson@example.com",
         "password": "123",
+        "age": 35,
         "task_show": {
             "active": 2,
             "completed": 1,
@@ -145,6 +148,7 @@ const employees = [
         "name": "Emily Davis",
         "email": "emilydavis@example.com",
         "password": "123",
+        "age": 29,
         "task_show": {
             "active": 3,
             "completed": 0,
@@ -192,6 +196,7 @@ const employees = [
         "name": "Robert Wilson",
         "email": "robertwilson@example.com",
         "password": "123",
+        "age": 41,
         "task_show": {
             "active": 2,
             "completed": 1,
@@ -238,20 +243,24 @@ const employees = [
 
 
 
+
 const admin = [
     {
         "id": 0,
         "name": "admin",
         "email": "admin@example.com",
-        "password": "123"
+        "password": "123",
+        "age": 40
     },
     {
         "id": 0,
         "name": "Dipanshu admin",
         "email": "dipanshu@admin.com",
-        "password": "123"
+        "password": "123",
+        "age": 28
     },
-]
+];
+
 
 const superAdmin = [
 

@@ -25,8 +25,8 @@ const Header = (props) => {
     console.log("🚀 ~ Header ~ userName:", userName)
     
     return (
-        <div className="container mx-auto max-w-7xl  p-6">
-            <div className="flex items-center justify-between">
+        <div className="container mx-auto max-w-7xl  p-6 ">
+            <div className="flex items-center justify-between ">
                 <h1 className="font-medium text-2xl">
                     Hello <br /> <span className='text-3xl font-semibold'>{userName} 👋</span>
                 </h1>

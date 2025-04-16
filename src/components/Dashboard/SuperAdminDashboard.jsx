@@ -27,18 +27,22 @@ import Messages from '../admin/adminPage/Messages';
 import Settings from '../admin/adminPage/Settings';
 import { setCurrentPath } from '../../features/navigationSlice';
 import { toggleSidebar } from '../../features/navigationSlice';
+import Admin from '../admin/adminPage/Admin';
 
 
 
 
 const navigationItems = [
     { icon: LayoutDashboard, name: 'Dashboard', path: '/' },
-    { icon: Users, name: 'Customers', path: '/customers' },
+    { icon: Users, name: 'Admin', path: '/admin' },
+
+    { icon: Users, name: 'Employees', path: '/employees' },
     { icon: ShoppingCart, name: 'Orders', path: '/orders' },
     { icon: Package, name: 'Products', path: '/products' },
     { icon: BarChart3, name: 'Analytics', path: '/analytics' },
     { icon: MessageSquare, name: 'Messages', path: '/messages' },
     { icon: Settings2, name: 'Settings', path: '/settings' },
+
 ];
 
 const SuperAdminDashboard = ({data , newUserData}) => {
@@ -194,7 +198,9 @@ const SuperAdminDashboard = ({data , newUserData}) => {
                 <main className="flex-1 overflow-y-auto bg-gray-50">
                     <Routes>
                         <Route path="/" element={<Dashboard />} />
-                        <Route path="/customers" element={<Customers />} />
+                        <Route path="/admin" element={<Admin />} />
+
+                        <Route path="/employees" element={<Customers />} />
                         <Route path="/orders" element={<Orders />} />
                         <Route path="/products" element={<Products />} />
                         <Route path="/analytics" element={<Analytics />} />

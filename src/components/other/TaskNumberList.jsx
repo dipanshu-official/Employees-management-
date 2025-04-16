@@ -2,6 +2,10 @@ import React from 'react'
 
 const TaskNumberList = ({data}) => {
     console.log('TaskNumberList',TaskNumberList.task_show)
+
+
+
+    
     return (
         <div className='container max-w-7xl mx-auto'>
             <div className="flex mt-6 justify-between gap-5 ">
