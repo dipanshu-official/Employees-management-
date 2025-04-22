@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { ArrowRight } from 'lucide-react'
 import { Navigate, useNavigate } from 'react-router-dom'
 import SignIn from './SignUp';
+import axios from 'axios';
 
 const Login = ({ handleLogin }) => {
   const navigate = useNavigate();
@@ -14,12 +15,23 @@ const Login = ({ handleLogin }) => {
 
   const [loginData, setLoginData] = useState(initialLogin)
 
-  const submitHandler = (e) => {
+  const submitHandler = async (e) => {
     e.preventDefault()
-    // handleLogin(handleLogin.email, handleLogin.password)
-    handleLogin(loginData.email, loginData.password)
 
-    setLoginData(initialLogin)
+    try {
+      const res = await axios.post('http://localhost:5000/api/login', loginData);
+      console.log(res.data)
+      alert('login successfully')
+      setLoginData(initialLogin)
+      handleLogin(loginData.email, loginData.password)
+
+
+    } catch (error) {
+      console.error(error);
+
+    }
+    // handleLogin(handleLogin.email, handleLogin.password)
+
 
     // setEmail("")
     // setPassword("")
@@ -44,10 +56,10 @@ const Login = ({ handleLogin }) => {
           <input
             type='email'
             name='email'
+            onChange={onChangeHandler}
             required
             className='outline-none txt-color w-full border border-[#E4E7E9] rounded-[2px] mt-2  h-11 '
             value={loginData.email}
-            onChange={onChangeHandler}
           />
         </div>
         <div className='mt-4'>
