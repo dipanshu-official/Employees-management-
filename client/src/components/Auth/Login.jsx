@@ -76,7 +76,6 @@ const Login = ({ handleLogin }) => {
         </button>
       </form>
       <div className='text-center mt-6'>
-        <p className='text-sm leading-5 text-[#77878F]  '>Don’t have account</p>
 
         <p onClick={() => {
           navigate('/signUp')

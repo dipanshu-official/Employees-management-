@@ -19,6 +19,7 @@ const authSlice = createSlice({
             state.admin = action.payload.admin;
             state.superAdmin = action.payload.superAdmin
         },
+        
         clearAuthData:(state , action) => {
             state.employees = null ;
             state.admin = null ;
