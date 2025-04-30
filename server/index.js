@@ -1,9 +1,10 @@
 // 1️⃣ Express import karte hain
 import express from 'express';
 import mongoose from 'mongoose';
+import employeesRoutes from './routes/employees.route.js';
+import superAdminRoutes from './routes/superAdmin.route.js';
+import adminRoutes from './routes/admin.route.js';
 import { configDotenv } from 'dotenv';
-import User from './models/user.models.js';
-import authRoutes from './routes/auth.js'
 import cors from 'cors'
 
 import connectDB from './db/database.js';
@@ -24,7 +25,12 @@ app.get('/', (req, res) => {
   res.send('Server chal raha hai meri jaan! 🔥');
 });
 
-app.use('/api' , authRoutes)
+app.use('/api/employee' , employeesRoutes)
+app.use('/api/superAdmin' , superAdminRoutes) 
+app.use('/api/admin' , adminRoutes)
+
+
+
 
 // 5️⃣ Server ko chalu karte hain
 app.listen(PORT, () => {

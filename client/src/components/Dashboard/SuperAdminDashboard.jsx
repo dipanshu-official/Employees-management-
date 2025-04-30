@@ -45,7 +45,7 @@ const navigationItems = [
 
 ];
 
-const SuperAdminDashboard = ({data , newUserData}) => {
+const SuperAdminDashboard = ({ data, newUserData }) => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const location = useLocation();
@@ -68,7 +68,7 @@ const SuperAdminDashboard = ({data , newUserData}) => {
         newUserData('')
 
         //window.location.reload() ,   {/*page reload*/}
-    
+
     }
 
     const handleProfileUpdate = (e) => {
@@ -152,7 +152,7 @@ const SuperAdminDashboard = ({data , newUserData}) => {
                                             Edit Profile
                                         </button>
                                         <button onClick={logOut} className="flex items-center w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
-                                            <LogOut  className="h-4 w-4 mr-2" />
+                                            <LogOut className="h-4 w-4 mr-2" />
                                             Sign Out
                                         </button>
                                     </div>
@@ -199,7 +199,6 @@ const SuperAdminDashboard = ({data , newUserData}) => {
                     <Routes>
                         <Route path="/" element={<Dashboard />} />
                         <Route path="/admin" element={<Admin />} />
-
                         <Route path="/employees" element={<Customers />} />
                         <Route path="/orders" element={<Orders />} />
                         <Route path="/products" element={<Products />} />

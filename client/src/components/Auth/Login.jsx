@@ -10,7 +10,8 @@ const Login = ({ handleLogin }) => {
   // const [password, setPassword] = useState("")
   const initialLogin = {
     email: '',
-    password: ''
+    password: '',
+    role: 'employee'
   }
 
   const [loginData, setLoginData] = useState(initialLogin)
@@ -18,18 +19,41 @@ const Login = ({ handleLogin }) => {
   const submitHandler = async (e) => {
     e.preventDefault()
 
-    try {
-      const res = await axios.post('http://localhost:5000/api/login', loginData);
-      console.log(res.data)
-      alert('login successfully')
-      setLoginData(initialLogin)
-      handleLogin(loginData.email, loginData.password)
-
-
-    } catch (error) {
-      console.error(error);
-
+    if (loginData.role === 'admin') {
+      try {
+        const res = await axios.post('http://localhost:5000/api/admin/login', loginData);
+        console.log(res.data)
+        alert('login successfully')
+        setLoginData(initialLogin)
+        handleLogin(loginData.email, loginData.password)
+      } catch (error) {
+        console.error(error);
+      }
     }
+    if (loginData.role === 'employee') {
+      try {
+        const res = await axios.post('http://localhost:5000/api/employee/login', loginData);
+        console.log(res.data)
+        alert('login successfully')
+        setLoginData(initialLogin)
+        handleLogin(loginData.email, loginData.password)
+      } catch (error) {
+        console.error(error);
+      }
+    }
+    if (loginData.role === 'superAdmin') {
+      try {
+        const res = await axios.post('http://localhost:5000/api/superAdmin/login', loginData);
+        console.log(res.data)
+        alert('login successfully')
+        setLoginData(initialLogin)
+        handleLogin(loginData.email, loginData.password)
+      } catch (error) {
+        console.error(error);
+      }
+    }
+
+   
     // handleLogin(handleLogin.email, handleLogin.password)
 
 
@@ -80,6 +104,21 @@ const Login = ({ handleLogin }) => {
 
           />
         </div>
+        <div className='mt-4'>
+          <p className='text-sm leading-5 txt-color'>Role</p>
+          <select
+            name='role'
+            value={loginData.role}
+            onChange={onChangeHandler}
+            className='outline-none txt-color w-full border border-[#E4E7E9] rounded-[2px] mt-2 h-11'
+            required
+          >
+            <option value='employee'>Employee</option>
+            <option value='admin'>Admin</option>
+            <option value='superAdmin'>SuperAdmin</option>
+          </select>
+        </div>
+
 
         <button className='bg-[#FA8232] mt-4 h-12 w-full flex items-center justify-center font-bold text-sm leading-8 gap-2  '>
           LOGIN

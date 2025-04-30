@@ -7,7 +7,8 @@ const SignUp = () => {
   const initialSignUp = {
     name: '',
     email: '',
-    password: ''
+    password: '',
+    role: 'employee'
   };
 
   const [signUp, setSignUp] = useState(initialSignUp);
@@ -15,16 +16,30 @@ const SignUp = () => {
 
   const handleCreateAccount = async (e) => {
     e.preventDefault();
-    try {
-      const res = await axios.post('http://localhost:5000/api/signup', signUp);
-      console.log(res.data);
-      alert('Account created successfully!');
-      setSignUp(initialSignUp);
-      navigate('/');
-      console.log('create accout',signUp)
-    } catch (err) {
-      console.error(err);
-      alert(err.response?.data?.message || 'Something went wrong!');
+    console.log(signUp.role);
+    if(signUp.role === 'admin' ) {
+      try {
+        const res = await axios.post('http://localhost:5000/api/admin/register', signUp);
+        console.log(res.data);
+        alert('Account created successfully');
+        setSignUp(initialSignUp);
+        navigate('/');
+      } catch (error) {
+        console.error(error);
+        alert('Error creating account');
+      }
+    }
+    if(signUp.role === 'employee') {
+      try {
+        const res = await axios.post('http://localhost:5000/api/employee/register', signUp);
+        console.log(res.data);
+        alert('Account created successfully');
+        setSignUp(initialSignUp);
+        navigate('/');
+      } catch (error) {
+        console.error(error);
+        alert('Error creating account');
+      }
     }
   };
 
@@ -74,10 +89,23 @@ const SignUp = () => {
             value={signUp.password}
           />
         </div>
+        <div className='mt-4'>
+          <p className='text-sm leading-5 txt-color'>Role</p>
+          <select
+            name='role'
+            value={signUp.role}
+            onChange={onChangeHandler}
+            className='outline-none txt-color w-full border border-[#E4E7E9] rounded-[2px] mt-2 h-11'
+            required
+          >
+            <option value='employee'>Employee</option>
+            <option value='admin'>Admin</option>
+          </select>
+        </div>
 
         <button
           type='submit'
-          className='bg-[#FA8232] text-white mt-4 h-12 w-full flex items-center justify-center font-bold text-sm leading-8 gap-2'
+          className='bg-[#FA8232] text-gray-900 mt-4 h-12 w-full flex items-center justify-center font-bold text-sm leading-8 gap-2'
         >
           SIGNUP
           <ArrowRight />

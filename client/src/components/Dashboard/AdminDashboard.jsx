@@ -6,8 +6,6 @@ import AllTask from '../Tasklist/AllTask'
 const AdminDashboard = (props) => {
     return (
         <>
-
-
             <CreateTask newUserData={props.newUserData}/>
             <AllTask newUserData={props.newUserData}/>
         </>
